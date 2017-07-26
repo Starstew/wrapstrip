@@ -14,7 +14,7 @@ var Wrapstrip = (function($){
 		rowHeights = [200,100,300,150,50],
 		rowRatios = [],
 		rowOffsets = [],
-		sourceHeight = 200,
+		imageHeight = 200,
 		offsetAmount = 1,
 		fps = 100,
 		rowWidth = 800,
@@ -25,7 +25,7 @@ var Wrapstrip = (function($){
 		.offsetX       starting offset (number)
 		.rowHeights   array of numbers, each representing rows' heights in pixels, sorted top to bottom
 		.rowWidth      the width of the display, in pixels
-		.sourceHeight  height of the image being used
+		.imageHeight  height of the image being used
 		.offsetAmount  how much to offset per frame when animating
 		.fps           ideal frames per second when animating
 	*/
@@ -34,7 +34,7 @@ var Wrapstrip = (function($){
 		offsetX = initObj.offsetX || offsetX;
 		rowHeights = initObj.rowHeights || rowHeights;
 		rowWidth = initObj.rowWidth || rowWidth;
-		sourceHeight = initObj.sourceHeight || sourceHeight;
+		imageHeight = initObj.imageHeight || imageHeight;
 		offsetAmount = initObj.offsetAmount || offsetAmount;
 		fps = initObj.fps || fps;
 		srcUrl = initObj.srcUrl || srcUrl;
@@ -51,7 +51,7 @@ var Wrapstrip = (function($){
 		for(var i=0; i<len; i++) {
 			var newRow = $("<div class='strip_row row_" + i + "'/>").css("height",rowHeights[i]+"px");
 			$("#displayHolder").append(newRow);
-			rowRatios[i] = rowHeights[i] / sourceHeight;
+			rowRatios[i] = rowHeights[i] / imageHeight;
 			if (i===0) {
 				rowOffsets[i] = 0;
 			} else {
