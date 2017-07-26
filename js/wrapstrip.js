@@ -19,26 +19,6 @@ var offsetX = 0,
 	rowWidth = 800,
 	srcUrl = "img/strip_compiled_sm_bw.jpg";
 
-/* when page is loaded, init the display and attach event handlers */
-$(function(){
-	initDisplay({ // this is where to edit settings when you're playing with it
-		srcUrl: "img/strip_compiled_sm.jpg",
-		rowWidth: 850,
-		displayRows: [50,100,150,250,300],
-		offsetAmount: 1,
-		fps: 1000
-	});
-	$(".strip_row").on("click", function(e){
-		toggleFlow();
-	});
-	$(window).on("keydown", function(e){
-		if (e.which === 39) {
-			toggleFlow(true);
-		} else if (e.which === 37) {
-			toggleFlow();
-		}
-	});
-});
 
 /* Set up the display using an object with parameters
 	.offsetX       starting offset (number)
@@ -107,4 +87,17 @@ var updatePositions = function() {
 		var off = (offsetX-displayRowsOffset[i]) * displayRowsHeightRatio[i];
 		$("#displayHolder .row_"+i).css("background-position", off + "px 0px").css("background-size","auto " + displayRows[i]+"px");
 	}
+};
+
+var initUi = function() {
+	$(".strip_row").on("click", function(e) {
+		toggleFlow();
+	});
+	$(window).on("keydown", function(e) {
+		if (e.which === 39) {
+			toggleFlow(true);
+		} else if (e.which === 37) {
+			toggleFlow();
+		}
+	});
 };

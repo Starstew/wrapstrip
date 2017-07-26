@@ -7,6 +7,20 @@
   integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
   crossorigin="anonymous"></script>
 <script src="js/wrapstrip.js"></script>
+
+<script>
+/* when page is loaded, init the display and attach event handlers */
+$(function(){
+	initDisplay({ // this is where to edit settings when you're playing with it
+		srcUrl: "img/strip_compiled_sm.jpg",
+		rowWidth: 850,
+		displayRows: [50,100,150,250,300],
+		offsetAmount: 1,
+		fps: 1000
+	});
+	initUi();
+});
+</script>
 </head>
 <body>
 <div id="left">
