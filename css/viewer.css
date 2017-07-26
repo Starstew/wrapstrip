@@ -1,0 +1,24 @@
+body {
+	font-family: Helvetica, Verdana, sans-serif;
+}
+h1 {
+	margin: 5px 0px;
+}
+.strip_row {
+	background-position: 0px 0px;
+}
+#displayHolder {
+	margin: 0px;
+	padding: 0px;
+}
+#left {
+	max-width: 250px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding: 0px 20px;
+}
+#left,
+#displayHolder {
+	display: inline-block;
+	vertical-align: top;
+}
