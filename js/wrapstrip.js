@@ -14,11 +14,11 @@ var Wrapstrip = (function($){
 		rowHeights = [200,100,300,150,50],
 		rowRatios = [],
 		rowOffsets = [],
-		imageHeight = 200,
 		offsetAmount = 1,
 		fps = 100,
 		rowWidth = 800,
-		srcUrl = "img/strip_compiled_sm_bw.jpg";
+		srcUrl = "img/strip_compiled_sm.jpg",
+		imageHeight = 200;
 
 
 	/* Set up the display using an object with parameters
@@ -91,14 +91,27 @@ var Wrapstrip = (function($){
 	};
 
 	var initUi = function() {
-		$(".strip_row").on("click", function(e) {
+		$(".strip_row").off("click").on("click", function(e) {
 			toggleFlow(true);
 		});
-		$(window).on("keydown", function(e) {
+		$(window).off("keydown").on("keydown", function(e) {
 			if (e.which === 39) {
 				toggleFlow(true);
 			} else if (e.which === 37) {
 				toggleFlow();
+			}
+		});
+	
+		// image chooser
+		$(".img_item").off("click").on("click", function(){
+			initDisplay({"srcUrl":"img/" + $(this).data("filename"), "imageHeight": $(this).data("imgheight")});
+			$(".img_item").removeClass("current");
+			initUi();
+		});
+		$(".img_item").each(function(ii){
+			$(this).text($(this).data("imgtitle"));
+			if(srcUrl === "img/" +$(this).data("filename")) {
+				$(this).addClass("current");
 			}
 		});
 	};
