@@ -12,12 +12,13 @@
 /* when page is loaded, init the display and attach event handlers */
 $(function(){
 	Wrapstrip.initDisplay({ // this is where to edit settings when you're playing with it
-		srcUrl: "img/strip_compiled2_sm.jpg",
-		rowWidth: 850,
-		rowHeights: [70,120,300,120,70],
+		srcUrl: "img/strip_compiled_combo_sm.jpg",
+		rowWidth: 1000,
+		rowHeights: [100,150,75,200,150],
 		offsetAmount: 2,
 		imageHeight: 300,
-		fps: 30
+		fps: 30,
+		offsetX: 12500
 	});
 	Wrapstrip.initUi();
 });
@@ -35,6 +36,7 @@ $(function(){
 			<li class="img_item" data-filename="strip_compiled_sm.jpg"    data-imgheight="300" data-imgtitle="Strip One"></li>
 			<li class="img_item" data-filename="strip_compiled_sm_bw.jpg" data-imgheight="300" data-imgtitle="Strip One (desaturated)"></li>
 			<li class="img_item" data-filename="strip_compiled2_sm.jpg"   data-imgheight="200" data-imgtitle="Strip Two"></li>
+			<li class="img_item" data-filename="strip_compiled_combo_sm.jpg"   data-imgheight="200" data-imgtitle="Strip Combo"></li>
 		</ul>
 	</div>
 
